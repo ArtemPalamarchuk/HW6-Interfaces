@@ -1,25 +1,28 @@
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList a = new ArrayList();
-        a.push(457);
-        a.push(24);
-        a.push(72);
-        a.push(0);
-        a.push(-23);
-        a.push(-66);
-        a.push(566);
-        //a.pop();
-        //a.unshift(111);
-        //a.shift();
-        a.showArray();
-        a.sort(a.a);
-        a.showArray();
+        ArrayList arrayList = new ArrayList();
+
+        arrayList.push(457);
+        arrayList.push(24);
+        arrayList.push(72);
+        arrayList.push(0);
+        arrayList.push(-23);
+        arrayList.push(-66);
+        arrayList.push(566);
+        arrayList.pop();
+        arrayList.unshift(111);
+        arrayList.shift();
+        arrayList.printArray();
+        arrayList.sort(arrayList.array);
+        arrayList.printArray();
+
         LinkedList l = new LinkedList();
 
-        Noda noda = new Noda(1);
-        Noda noda2 = new Noda(2);
-        System.out.println(noda2.next);
+        l.push(5);
+        l.push(6);
+        l.push(8);
+
 
 
     }

@@ -1,14 +1,12 @@
 public class ArrayList implements List {
 
-    int length = 0;
-    int a [] = new int[50];
+    public int length = 0;
+    public int array [] = new int[50];
 
-
-    public void showArray() {
+    public void printArray() {
         for(int i = 0; i < this.size(); i++){
-            System.out.print(a[i] + " ");
+            System.out.print(array[i] + " ");
         }
-        System.out.println();
     }
 
     @Override
@@ -18,15 +16,14 @@ public class ArrayList implements List {
 
     @Override
     public void push(int value) {
-        this.a[this.size()] = value;
+        this.array[this.size()] = value;
         length++;
     }
 
-
     @Override
     public void pop() {
-        int delete = a[this.size()];
-        a[this.size()] = 0;
+        int delete = array[this.size()];
+        array[this.size()] = 0;
         length--;
         //System.out.println(delete);
     }
@@ -34,9 +31,9 @@ public class ArrayList implements List {
     @Override
     public void unshift(int value) {
         for(int i = this.size(); i >  0 ; i--){
-            this.a[i] = this.a[i - 1];
+            this.array[i] = this.array[i - 1];
         }
-        a[0] = value;
+        array[0] = value;
         length++;
     }
 
@@ -44,18 +41,17 @@ public class ArrayList implements List {
     public void shift() {
         String delete = this.size() + " deleted";
         for(int i = 0; i < size() ; i++){
-            this.a[i] = this.a[i + 1];
+            this.array[i] = this.array[i + 1];
         }
         length--;
         //System.out.println(delete);
     }
 
-
     @Override
-    public void toString(int[] a) {
+    public void toString(int[] array) {
         String str = "";
         for(int i = 0; i < size() ; i++){
-            str += this.a[i] + ", ";
+            str += this.array[i] + ", ";
         }
         str =  str.substring(0, str.length() - 2) + " - String";
         System.out.println(str);

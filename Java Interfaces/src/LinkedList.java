@@ -1,8 +1,21 @@
 public class LinkedList implements List {
 
-    int length = 0;
-    public Noda root = null;
-    public Noda first = null;
+    private Noda root;
+    private int length = 0;
+
+    class Noda {
+        private int element;
+        private Noda prev;
+        private Noda next;
+    }
+
+    public Noda createNoda(int element){
+        Noda noda = new Noda();
+        noda.element = element;
+        noda.prev = null;
+        noda.next = null;
+        return noda;
+    }
 
     @Override
     public int size() {
@@ -10,20 +23,12 @@ public class LinkedList implements List {
     }
 
     @Override
-    public void push(int i) {
-        Noda newNoda = new Noda(i);
-        if (root.next == null) {
-            root.next = newNoda;
-            newNoda.prev = root;
-        } else {
-            tmp = root.next;
-            while (first.next != null) {
-                first = first.next;
-            }
-            first.next = tmp;
-        }
-        length++;
+    public void push(int value) {
+        Noda newNoda = createNoda(value);
+
     }
+
+
 
     @Override
     public void pop() {
