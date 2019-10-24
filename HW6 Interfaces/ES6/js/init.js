@@ -1,66 +1,55 @@
-function List(){
-	this.clear = function () {
+class List{
+	constructor(){
+		this.clear = function () {
+
+		};
+		this.length = function () {
+
+		};
+		this.pop = function(){
+
+		};
+		this.push = function(){
+
+		};
+		this.shift = function(){
+
+		};
+		this.unshift = function(){
+
+		};
+		this.toString = function(){
+
+		};
+		this.sort = function(){
 
 	};
-	this.length = function () {
-
-	};
-	this.pop = function(){
-
-	};
-	this.push = function(){
-
-	};
-	this.shift = function(){
-
-	};
-	this.unshift = function(){
-
-	};
-	this.toString = function(){
-
-	};
-	this.sort = function(){
-
-	};
+	}
 }
 
-function ArrayList() {
-	List.call(this);
+class ArrayList extends  List {
 
-	this.clear = function () {
-		if(arguments.length > 0){
-			return false;
-		}
+	clear =  () => {
 		for(let i = this.length(); i > -1; i--){
 			delete this[i];
 		}
-	}
-	this.length = function () {
-		if(arguments.length > 0){
-			return false;
-		}
+	};
+	length =  () => {
 		let index = 0;
 		for (let i = 0; this[i] !== undefined; i++){
 			index = i + 1;
 		}
 		return index;
 	};
-	this.push = function (value) {
-		if(arguments.length !== 1 || typeof(arguments) == null || typeof(arguments) == undefined){
-			return false;
-		}
+	push = (value) => {
 		return (this[this.length()] = value);
 	};
-	this.pop = function (){
-		if(arguments.length > 0){
-			return false;
-		}
+	pop = () => {
 		let deleted = this[this.length() - 1];
 		delete this[this.length() - 1];
 		return deleted;
 	};
-	this.shift = function () {
+	shift = () => {
 		let deleted = this[0];
 		for(let i = 0; i < this.length(); i++){
 			this[i] = this[i + 1];
@@ -68,20 +57,14 @@ function ArrayList() {
 		delete this[this.length()];
 		return deleted;
 	};
-	this.unshift = function  (){
-		if(arguments.length !== 1){
-			return false;
-		}
+	unshift = () =>{
 		for(let i = this.length(); i > -1; i--){
 			this[i] = this[i - 1];
 		}
 		this[0] = value;
 		return (this[0] = value);
 	};
-	this.toString = function(){
-		if(arguments.length > 0){
-			return false;
-		}
+	toString = () => {
 		let str = "";
 		for(let i = 0; i < this.length(); i++){
 			str +=this[i] + ", ";
@@ -89,14 +72,14 @@ function ArrayList() {
 		str = str.substring(0, str.length - 1);
 		return str;
 	}
-	this.sort = function (f) {
+	sort = (f) => {
 		if(f && (typeof f == "function" )){
 			for(let i = 0; i < this.length(); i++){
 				for(let j = 0; j < this.length(); j++){
 					if(j === this.length() - 1){
 						break;
 					}
-					if(f(this[j], this[j+1]) == 1){
+					if(f(this[j], this[j+1]) === 1){
 						[this[j], this[j+1]] = [this[j+1], this[j]];
 					}
 				}
@@ -115,24 +98,34 @@ function ArrayList() {
 	}
 }
 
-function LinkedList() {
-	List.call(this);
+class LinkedList extends List{
 
-	this.clear = function () {
+	root = {
+		next : null,
+		prev : null,
+		length : 0,
+	};
+
+	clear = () => {
 		this.root.next = null;
 		this.root.prev = null;
 		this.root.length = 0;
 	};
-	this.length = function () {
-		if(arguments.length !== 0){
-			return false;
-		}
+	
+	length = () => {
 		return this.root.length;
 	};
-	this.push = function (el) {
-		if(arguments.length !== 1){
-			return false;
+	
+	createNode = (el) => {
+		return {
+			el : el ? el : null,
+			next : null,
+			prev : null,
+			index : this.root.length,
 		}
+	};
+	
+	push = (el) => {
 		const newNode = this.createNode(el);
 		let tmp = this.root;
 		while (tmp.next && (tmp.next !== this.root)){
@@ -145,7 +138,8 @@ function LinkedList() {
 		this.root.length++;
 		return true;
 	};
-	this.pop = function (){
+	
+	pop = () => {
 		if(this.root.length === 0){
 			return false;
 		}
@@ -169,7 +163,8 @@ function LinkedList() {
 			}
 		}
 	};
-	this.shift = function () {
+	
+	shift = () => {
 		if(this.root.next = null){
 			return false;
 		}else{
@@ -178,7 +173,8 @@ function LinkedList() {
 			this.root.length--;
 		}
 	};
-	this.unshift = function  (el){
+	
+	unshift = (el) => {
 		const newNode = this.createNode(el);
 		if(this.root.next == null){
 			this.root.next = newNode;
@@ -191,7 +187,7 @@ function LinkedList() {
 		}
 		return true;
 	};
-	this.toString = function(){
+	toString = () => {
 		let str = "";
 		let tmp = this.root;
 		while(tmp.next !== null){
@@ -200,8 +196,9 @@ function LinkedList() {
 		}
 		str = str.substring(0, str.length - 2);
 		return str;
-	}
-	this.sort = function (f) {
+	};
+	
+	sort = (f) => {
 		if(f && (typeof f == "function" )){
 			let firstNoda = this.root.next;
 			while(firstNoda && firstNoda.next){
@@ -221,16 +218,5 @@ function LinkedList() {
 				firstNoda = firstNoda.next;;
 			}
 		}
-	}
+	};
 }
-
-
-
-
-
-
-
-
-	
-	
-	
