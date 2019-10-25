@@ -27,77 +27,88 @@ class List{
 	}
 }
 
+
+
 class ArrayList extends  List {
+	array = [];
+	size = 0;
+	str = "";
 
 	clear =  () => {
-		for(let i = this.length(); i > -1; i--){
-			delete this[i];
-		}
+		this.array = [];
+		this.size = 0;
 	};
 	length =  () => {
-		let index = 0;
-		for (let i = 0; this[i] !== undefined; i++){
-			index = i + 1;
-		}
-		return index;
+		return this.size;
 	};
 	push = (value) => {
-		return (this[this.length()] = value);
+		this.array[this.size] = value;
+		this.size++;
+		return value;
 	};
 	pop = () => {
-		let deleted = this[this.length() - 1];
-		delete this[this.length() - 1];
-		return deleted;
+		let lastElem = this.array[this.size - 1];
+		let a = [];
+		for(let i = 0; i < this.size - 1; i++){
+			a[i] = this.array[i];
+		}
+		this.array = a;
+		this.size--;
+		return lastElem;
 	};
 	shift = () => {
-		let deleted = this[0];
-		for(let i = 0; i < this.length(); i++){
-			this[i] = this[i + 1];
+		let firstElem = this.array[0];
+		let a = [];
+		for(let i = 0; i < this.size - 1; i++){
+			a[i] = this.array[i + 1];
 		}
-		delete this[this.length()];
-		return deleted;
+		this.array = a;
+		this.size--;
+		return firstElem;
 	};
-	unshift = () =>{
-		for(let i = this.length(); i > -1; i--){
-			this[i] = this[i - 1];
+	unshift = (value) =>{
+		let a = [];
+		a[0] = value;
+		for(let i = 0; i < this.size; i++){
+			a[i + 1] = this.array[i];
 		}
-		this[0] = value;
-		return (this[0] = value);
+		this.array = a;
+		this.size++;
+		return value;
 	};
 	toString = () => {
-		let str = "";
-		for(let i = 0; i < this.length(); i++){
-			str +=this[i] + ", ";
+		for(let i = 0; i < this.size; i++){
+			this.str +=this.array[i] + ", ";
 		}
-		str = str.substring(0, str.length - 1);
-		return str;
+		this.str = this.str.substring(0, this.str.length - 2);
+		return this.str;
 	}
 	sort = (f) => {
 		if(f && (typeof f == "function" )){
-			for(let i = 0; i < this.length(); i++){
-				for(let j = 0; j < this.length(); j++){
-					if(j === this.length() - 1){
+			for(let i = 0; i < this.size; i++){
+				for(let j = 0; j < this.size; j++){
+					if(j === this.size - 1){
 						break;
 					}
-					if(f(this[j], this[j+1]) === 1){
-						[this[j], this[j+1]] = [this[j+1], this[j]];
+					if(f(this.array[j], this.array[j+1]) === 	1){
+						[this.array[j], this.array[j+1]] = [this.array[j+1], this.array[j]];
 					}
 				}
 			}
 		}else{
-			for(let i = 0; i < this.length(); i++){
-				for(let j = 0; j < this.length(); j++){
-					if(j === this.length() - 1){
+			for(let i = 0; i < this.size; i++){
+				for(let j = 0; j < this.size; j++){
+					if(j === this.size - 1){
 						break;
-					}if( String(this[j]) > String(this[j + 1]) ){
-						[this[j], this[j+1]] = [this[j+1], this[j]];
+					}if( String(this.array[j]) > String(this.array[j + 1]) ){
+						[this.array[j], this.array[j+1]] = [this.array[j+1], this.array[j]];
 					}
 				}
 			}
 		}
 	}
 }
-
+const a = new ArrayList();
 class LinkedList extends List{
 
 	root = {

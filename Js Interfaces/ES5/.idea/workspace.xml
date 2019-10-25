@@ -15,6 +15,8 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ES6" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -46,6 +48,7 @@
       <workItem from="1571861915644" duration="6564000" />
       <workItem from="1571903783383" duration="8597000" />
       <workItem from="1572003301283" duration="3557000" />
+      <workItem from="1572026522453" duration="5301000" />
     </task>
     <servers />
   </component>
@@ -57,7 +60,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

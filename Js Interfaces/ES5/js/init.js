@@ -1,3 +1,4 @@
+console.log("Hi there!!!")
 function List(){
 	this.clear = function () {
 
@@ -23,15 +24,6 @@ function List(){
 	this.sort = function(){
 
 	};
-	this.reverse = function(){
-
-	};
-	this.map = function(){
-
-	};
-	this.reduce = function(){
-
-	};
 }
 
 const a = new ArrayList();
@@ -40,6 +32,7 @@ function ArrayList() {
 	List.call(this);
 	this.size = 0;
 	this.array = [];
+	this.str = "";
 
 	this.clear = function () {
 		if(arguments.length > 0){
@@ -69,63 +62,64 @@ function ArrayList() {
 		this.size--;
 		return lastElem;
 	};
-	this.shift = function () {
-		let a = [];
-		for(let i = 1; i < this.size; i++){
-			a[i] = this.array[i]l
-		}
-		delete this[this.length()];
-		return deleted;
-	};
-	this.unshift = function  (){
+	this.unshift = function  (value){
 		if(arguments.length !== 1){
 			return false;
 		}
-		for(let i = this.length(); i > -1; i--){
-			this[i] = this[i - 1];
+		let a = [];
+		a[0] = value;
+		for(let i = 0; i < this.size; i++){
+			a[i + 1] = this.array[i];
 		}
-		this[0] = value;
-		return (this[0] = value);
+		this.array = a;
+		this.size++;
+		return value;
+	};
+	this.shift = function () {
+		firstElem = this.array[0];
+		let a = [];
+		for(let i = 0; i < this.size - 1; i++){
+			a[i] = this.array[i + 1];
+		}
+		this.array = a;
+		this.size--;
+		return firstElem;
 	};
 	this.toString = function(){
 		if(arguments.length > 0){
 			return false;
 		}
-		let str = "";
-		for(let i = 0; i < this.length(); i++){
-			str +=this[i] + ", ";
+		for(let i = 0; i < this.size; i++){
+			this.str +=this.array[i] + ", ";
 		}
-		str = str.substring(0, str.length - 1);
-		return str;
-	}
+		this.str = this.str.substring(0, this.str.length - 2);
+		return this.str;
+	};
+
 	this.sort = function (f) {
 		if(f && (typeof f == "function" )){
-			for(let i = 0; i < this.length(); i++){
-				for(let j = 0; j < this.length(); j++){
-					if(j === this.length() - 1){
+			for(let i = 0; i < this.size; i++){
+				for(let j = 0; j < this.size; j++){
+					if(j === this.size - 1){
 						break;
 					}
-					if(f(this[j], this[j+1]) === 1){
-						[this[j], this[j+1]] = [this[j+1], this[j]];
+					if(f(this.array[j], this.array[j+1]) === 	1){
+						[this.array[j], this.array[j+1]] = [this.array[j+1], this.array[j]];
 					}
 				}
 			}
 		}else{
-			for(let i = 0; i < this.length(); i++){
-				for(let j = 0; j < this.length(); j++){
-					if(j === this.length() - 1){
+			for(let i = 0; i < this.size; i++){
+				for(let j = 0; j < this.size; j++){
+					if(j === this.size - 1){
 						break;
-					}if( String(this[j]) > String(this[j + 1]) ){
-						[this[j], this[j+1]] = [this[j+1], this[j]];
+					}if( String(this.array[j]) > String(this.array[j + 1]) ){
+						[this.array[j], this.array[j+1]] = [this.array[j+1], this.array[j]];
 					}
 				}
 			}
 		}
 	}
-
-	/*this.reverse = function (arr) {
-
-	}*/
 }
 
 function LinkedList() {
