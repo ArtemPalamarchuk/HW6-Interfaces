@@ -23,47 +23,57 @@ function List(){
 	this.sort = function(){
 
 	};
+
+	this.reverse = function(){
+
+	};
+	this.map = function(){
+
+	};
+	this.reduce = function(){
+
+	};
 }
+
+const a = new ArrayList();
 
 function ArrayList() {
 	List.call(this);
+	this.size = 0;
+	this.array = [];
 
 	this.clear = function () {
 		if(arguments.length > 0){
 			return false;
 		}
-		for(let i = this.length(); i > -1; i--){
-			delete this[i];
-		}
+		this.array = [];
+		this.size = 0;
 	}
 	this.length = function () {
-		if(arguments.length > 0){
-			return false;
-		}
-		let index = 0;
-		for (let i = 0; this[i] !== undefined; i++){
-			index = i + 1;
-		}
-		return index;
+		return this.size;
 	};
 	this.push = function (value) {
 		if(arguments.length !== 1 || typeof(arguments) == null || typeof(arguments) == "undefined"){
 			return false;
 		}
-		return (this[this.length()] = value);
+		this.array[this.size] = value;
+		this.size++;
+		return value;
 	};
 	this.pop = function (){
-		if(arguments.length > 0){
-			return false;
+		lastElem = this.array[this.size - 1];
+		let a = [];
+		for(let i = 0; i < this.size - 1; i++){
+			a[i] = this.array[i];
 		}
-		let deleted = this[this.length() - 1];
-		delete this[this.length() - 1];
-		return deleted;
+		this.array = a;
+		this.size--;
+		return lastElem;
 	};
 	this.shift = function () {
-		let deleted = this[0];
-		for(let i = 0; i < this.length(); i++){
-			this[i] = this[i + 1];
+		let a = [];
+		for(let i = 1; i < this.size; i++){
+			a[i] = this.array[i]l
 		}
 		delete this[this.length()];
 		return deleted;
@@ -113,6 +123,10 @@ function ArrayList() {
 			}
 		}
 	}
+
+	/*this.reverse = function (arr) {
+
+	}*/
 }
 
 function LinkedList() {
@@ -247,3 +261,4 @@ function LinkedList() {
 		}
 	};
 }
+

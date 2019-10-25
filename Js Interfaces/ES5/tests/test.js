@@ -15,12 +15,6 @@ describe('Array list', function () {
 	})
 
 	describe('Length method', function () {
-        it('Method length have arg/s and expected return false', function () {
-            const arrayList = new ArrayList();
-            const exp = false;
-            const act = arrayList.length(1);
-            assert.equal(exp, act);
-        })
 		it('Call push method three times, expected return true if length = 3', function () {
 			arrayList.push(1);
 			arrayList.push(1);
