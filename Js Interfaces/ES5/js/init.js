@@ -23,7 +23,6 @@ function List(){
 	this.sort = function(){
 
 	};
-
 	this.reverse = function(){
 
 	};
