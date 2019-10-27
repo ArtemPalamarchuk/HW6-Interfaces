@@ -15,17 +15,18 @@ public class ArrayList implements List {
     }
 
     @Override
-    public void push(int value) {
+    public int push(int value) {
         this.array[this.size()] = value;
         length++;
+        return value;
     }
 
     @Override
-    public void pop() {
+    public int pop() {
         int delete = array[this.size()];
         array[this.size()] = 0;
         length--;
-        //System.out.println(delete);
+        return delete;
     }
 
     @Override
