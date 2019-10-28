@@ -15,7 +15,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ES6" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../HW7-Prototype" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
@@ -49,6 +49,7 @@
       <workItem from="1571903783383" duration="8597000" />
       <workItem from="1572003301283" duration="3557000" />
       <workItem from="1572026522453" duration="5301000" />
+      <workItem from="1572250147788" duration="37000" />
     </task>
     <servers />
   </component>
