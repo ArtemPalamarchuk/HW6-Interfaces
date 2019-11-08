@@ -1,5 +1,3 @@
-const arrayList = new ArrayList();
-
 describe('Array list', function () {
 	beforeEach(function () {
         arrayList.clear();
@@ -9,7 +7,7 @@ describe('Array list', function () {
         it('Create object a, push value 1 and expected return true if a[0] = 1', function () {
             arrayList.push(1);
             let exp = 1;
-            const act = arrayList[0];
+            const act = arrayList.array[0];
             assert.equal(exp, act);
         })
 	})
@@ -85,8 +83,6 @@ describe('Array list', function () {
 	})
 
 });
-
-const linkedList = new LinkedList();
 
 describe('Linked list', function () {
 	beforeEach(function () {
